@@ -35,8 +35,6 @@ import android.view.Surface;
 import android.view.TextureView;
 import android.widget.Toast;
 
-import com.crazyma.camerasample.AutoFitTextureView;
-
 import java.io.File;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -64,10 +62,6 @@ public class CameraUtil {
     private static final int STATE_WAITING_NON_PRECAPTURE = 3;
     private static final int STATE_PICTURE_TAKEN = 4;
 
-    public static final int FLASH_OFF = 0;
-    public static final int FLASH_ON = 1;
-    public static final int FLASH_AUTO = 2;
-
     private static final SparseIntArray ORIENTATIONS = new SparseIntArray();
     static {
         ORIENTATIONS.append(Surface.ROTATION_0, 90);
@@ -93,7 +87,6 @@ public class CameraUtil {
 
     private Activity activity;
     private File mFile;
-    private int flashMode;
 
     private final TextureView.SurfaceTextureListener mSurfaceTextureListener
             = new TextureView.SurfaceTextureListener() {
@@ -291,10 +284,6 @@ public class CameraUtil {
 
     public void setTextureView(AutoFitTextureView mTextureView) {
         this.mTextureView = mTextureView;
-    }
-
-    public void setFlashMode(int flashMode) {
-        this.flashMode = flashMode;
     }
 
     private void startBackgroundThread() {
